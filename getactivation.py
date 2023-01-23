@@ -1,9 +1,6 @@
-from transformers import BertTokenizer
-##files from git
-from model import BertForMultiLabelClassification
-from multilabel_pipeline import MultiLabelPipeline
-from pprint import pprint
 import torch
+from transformers import BertTokenizer
+from model import BertForMultiLabelClassification
 tokenizer = BertTokenizer.from_pretrained("monologg/bert-base-cased-goemotions-original")
 model = BertForMultiLabelClassification.from_pretrained("monologg/bert-base-cased-goemotions-original")
 
