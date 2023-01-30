@@ -10,8 +10,17 @@ def get_activation(name):
         activation[name] = output.detach()
     return hook
 
-model.bert.register_forward_hook(get_activation('bert')) #layer problem
-x = #input problem
+model.bert.register_forward_hook(get_activation('bert')) 
+
+#layer problem
+#Unable to locate one layer in bert
+
+
+x = 
+#input problem
+#Which input to use for collection
+
+
 output = model(x)
 print(activation['bert'])
 
