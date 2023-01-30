@@ -10,4 +10,5 @@ Since the activation function used is known, for a neuron with an output value g
 
 ## Attempt：
 1.Use hook to get (mimic getting intermediate feature values in image recognition)
+
 2.Add print the output value directly into the code
