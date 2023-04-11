@@ -1,0 +1,20 @@
+import torch
+from transformers import BertTokenizer, BertModel
+
+# 加载BERT模型和分词器
+tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+model = BertModel.from_pretrained('bert-base-uncased', output_hidden_states=True)
+
+# 加载数据集
+dataset = [
+    "This is a sample text.",
+    "Another example text."
+]
+
+# 对每个样本进行编码并获取最后一层的神经元激活情况
+for text in dataset:
+    input_ids = torch.tensor(tokenizer.encode(text, add_special_tokens=True)).unsqueeze(0)
+    outputs = model(input_ids)
+    last_layer_hidden_states = outputs[2][-1]
+    for i, token in enumerate(tokenizer.convert_ids_to_tokens(input_ids[0])):
+        print(token, last_layer_hidden_states[0][i])
